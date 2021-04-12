@@ -53,5 +53,12 @@ namespace Runner.Services
 
             timer.Change(Timeout.Infinite, Timeout.Infinite);
         }
+
+        public override Task StopAsync()
+        {
+            // Stop the timer here since that ends up rooting the callback in the global timer queue
+            StopTimer(_tmrConnect);
+            return base.StopAsync();
+        }
     }
 }
