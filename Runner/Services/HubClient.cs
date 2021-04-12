@@ -20,7 +20,7 @@ namespace Runner.Services
             System.Console.WriteLine($"HubState = {HubConnection.State}");
         }
 
-        public async Task StopAsync()
+        public virtual async Task StopAsync()
         {
             await HubConnection.StopAsync();
             await HubConnection.DisposeAsync();
