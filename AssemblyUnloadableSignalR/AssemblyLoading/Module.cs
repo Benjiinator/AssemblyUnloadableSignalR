@@ -15,7 +15,7 @@ namespace AssemblyUnloadableSignalR.AssemblyLoading
     {
         public static async Task Run<T>(string executeModule, Func<T, Task> action) where T : class
         {
-            WeakReference hostAlcWeakRef = await ExecuteAndUnload<T>(executeModule, executeModule, action, tcs);
+            WeakReference hostAlcWeakRef = await ExecuteAndUnload<T>(executeModule, executeModule, action);
 
             for (int i = 0; hostAlcWeakRef.IsAlive && (i < 10); i++)
             {
